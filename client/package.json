@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --write ."
   },
-  "proxy": "https://mamaify.herokuapp.com",
+  "proxy": "http://192.168.43.154:5000",
   "eslintConfig": {
     "extends": "react-app"
   },
