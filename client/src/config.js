@@ -2,10 +2,8 @@
  * Application wide configuration
  */
 const config = {
-  // baseURI: process.env.REACT_APP_API_BASE_URL,
-  baseURI: 'http://192.168.43.154:5000/api/v1',
-  // payPal: process.env.REACT_APP_API_PAYPAL,
-  payPal: 'pk_live_76ea25e351b689e556b34a568b0505d21dda6d9b',
+  baseURI: process.env.REACT_APP_API_BASE_URL,
+  payPal: process.env.REACT_APP_API_PAYPAL,
   esewaImageUrl: process.env.REACT_APP_ESEWA_IMAGE_URL,
   esewaPaymentUrl: process.env.REACT_APP_ESEWA_PAYMENT_URL,
   apiEndPoint: {
