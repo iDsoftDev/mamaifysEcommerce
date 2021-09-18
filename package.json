@@ -6,7 +6,7 @@
   "author": "Idam Eni Idam",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=production nodemon app.js",
+    "start": "NODE_ENV=production node app.js",
     "start:dev": "nodemon app",
     "client": "npm start --prefix client",
     "mamaifys": "concurrently \"npm run start\" \"npm run client\"",
