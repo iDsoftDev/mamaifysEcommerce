@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "proxy": "http://192.168.43.154:5000",
   "version": "1.0.1",
   "private": true,
   "dependencies": {
@@ -33,7 +34,6 @@
     "eject": "react-scripts eject",
     "format": "prettier --write ."
   },
-  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": "react-app"
   },
