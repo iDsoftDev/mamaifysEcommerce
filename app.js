@@ -42,7 +42,7 @@ app.get("/api/config/paypal", (req, res) =>
 );
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static(path.join(__dirname, "/client/build")));
 
   app.get("*", (req, res) =>
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
@@ -56,12 +56,12 @@ if (process.env.NODE_ENV === "production") {
 app.use(unknownEndpoints);
 app.use(errorHandler);
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
-  port,
+  PORT,
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${port}`.yellow.bold
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 );
 
