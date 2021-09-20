@@ -6,11 +6,11 @@
   "author": "Idam Eni Idam",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "NODE_ENV=production node app.js",
     "start:dev": "nodemon app",
     "client": "npm start --prefix client",
     "mamaifys": "concurrently \"npm run start\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "YARN_PRODUCTION=false cd client && yarn install"
   },
   "engines": {
     "node": "14.15.4"
