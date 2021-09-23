@@ -3,7 +3,7 @@
  */
 const config = {
   // baseURI: process.env.REACT_APP_API_BASE_URL,
-  baseURI: 'http://192.168.43.154:5000/api/v1',
+  baseURI: 'http://localhost:5000/api/v1',
   payPal: process.env.REACT_APP_API_PAYPAL,
   esewaImageUrl: process.env.REACT_APP_ESEWA_IMAGE_URL,
   esewaPaymentUrl: process.env.REACT_APP_ESEWA_PAYMENT_URL,
