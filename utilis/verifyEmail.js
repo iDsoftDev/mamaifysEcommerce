@@ -15,8 +15,7 @@ var transport = nodemailer.createTransport({
 });
 // Then the transport you initialized
 var mailOptions = {
-  from: `${process.env.EMAIL_LOGIN}`,
-  // from: `${process.env.FROM_NAME} <${process.env.FROM_EMAIL}>`,
+  from: `${process.env.FROM_NAME} <${process.env.FROM_EMAIL}>`,
   to: options.email,
   subject: options.subject,
   html:
@@ -25,9 +24,9 @@ var mailOptions = {
     "><h1 style=" +
     "font-weight:500>Hey, " +
     options.name +
-    "<br>Welcome to MamaIfy's Online Shooping</h1><h1>Thanks for Signing up on our app</h1><h3>Your Code for verification is : " +
+    "<br>Welcome to MamaIfy's Online Shopping</h1><h1>Thanks for Signing up on our app</h1><h3>Your Code for verification is : " +
     options.code +
-    " </h3></div><p>If this request is not made by you kindly ignore this mail.</p><p>Regards, <strong>Idam Eni Idam(Owner)</strong></p>",
+    " </h3></div><p>If this request is not made by you kindly ignore this mail.</p><p>Regards, <strong>Idam Eni Uzoma(Owner)</strong></p>",
  };
 console.log(mailOptions);
 transport.sendMail(mailOptions, function (error, info) {

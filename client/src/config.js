@@ -3,9 +3,7 @@
  */
 const config = {
   baseURI: process.env.REACT_APP_API_BASE_URL,
-  // baseURI: 'http://localhost:5000/api/v1',
-  // baseURI: 'https://mamaify.herokuapp.com/api/v1',
-  payPal: process.env.REACT_APP_API_PAYPAL,
+  payStack: process.env.REACT_APP_API_PAYSTACK,
   esewaImageUrl: process.env.REACT_APP_ESEWA_IMAGE_URL,
   esewaPaymentUrl: process.env.REACT_APP_ESEWA_PAYMENT_URL,
   apiEndPoint: {
@@ -41,3 +39,4 @@ const config = {
 };
 
 export default config;
+

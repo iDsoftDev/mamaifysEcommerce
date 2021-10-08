@@ -61,7 +61,7 @@ const payment = asyncHandler(async (req, res, next) => {
       id: req.body.id,
       status: req.body.status,
       update_time: req.body.update_time,
-      email_address: req.body.payer.email_address,
+      email: req.body.email,
     };
   } else {
     //Esewa payment integration
@@ -69,7 +69,7 @@ const payment = asyncHandler(async (req, res, next) => {
       id: order._id,
       status: 200,
       update_time: Date.now(),
-      email_address: "epaytest@gmail.com",
+      email: "epaytest@gmail.com",
     };
   }
 

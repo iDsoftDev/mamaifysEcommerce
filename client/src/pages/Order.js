@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { PayPalButton } from 'react-paypal-button-v2';
 import { PaystackButton } from 'react-paystack';
 import { Link } from 'react-router-dom';
 import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
@@ -41,11 +40,10 @@ const Order = ({ match }) => {
   const refId = queryParams.get('refId') ? queryParams.get('refId').trim() : null;
 
   useEffect(() => {
-    const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get('/api/config/paypal');
+    const addPayStackScript = async () => {
+      const { data: clientId } = await axios.get('/api/config/paystack');
       const script = document.createElement('script');
       script.type = 'text/javascript';
-      // script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
       script.src = `https://js.paystack.co/v1/inline.js?client-id=${clientId}`;
       script.async = true;
       script.onload = () => {
@@ -55,8 +53,8 @@ const Order = ({ match }) => {
     };
 
     if (order && !order.isPaid) {
-      if (!window.paypal) {
-        addPayPalScript();
+      if (!window.paystack) {
+        addPayStackScript();
       } else {
         setSdkReady(true);
       }
@@ -94,7 +92,7 @@ const Order = ({ match }) => {
     dispatch(deliverOrder(order._id));
   };
 
-  const payWithEsewa = () => {
+  const payWith = () => {
     var resultId = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
@@ -240,24 +238,29 @@ const Order = ({ match }) => {
                       <Col>NGN{order.totalPrice}</Col>
                     </Row>
                   </ListGroup.Item>
-                  {order.payment && order.payment.paymentMethod === 'PayPal' && !order.isPaid && (
+                  {order.payment && order.payment.paymentMethod === 'PayStack' && !order.isPaid && (
                     <ListGroup.Item>
                       {loadingPay && <Loader />}
                       {!sdkReady ? (
                         <Loader />
                       ) : (
-                        // <PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler} />
-                        <PaystackButton text={'Click to make payment'} reference ={(new Date()).getTime().toString()} email={order.userId.email} publicKey = {'pk_live_76ea25e351b689e556b34a568b0505d21dda6d9b'} amount={order.totalPrice * 100} onSuccess={successPaymentHandler} />
+                        <Button type="submit" variant="contained" color="primary" fullWidth >
+
+                        
+                        <PaystackButton text={'Click to make payment'} reference ={(new Date()).getTime().toString()} email={order.userId.email}
+                                         publicKey = {process.env.REACT_APP_API_PAYSTACK} 
+                                         amount={order.totalPrice * 100} 
+                                         onSuccess={successPaymentHandler} />
+                                         </Button>
                       )}
                     </ListGroup.Item>
                   )}
-                  {order.payment && order.payment.paymentMethod === 'esewa' && !order.isPaid && (
+                  {/* {order.payment && order.payment.paymentMethod === 'esewa' && !order.isPaid && (
                     <ListGroup.Item>
                       <Button variant="outlined" color="primary" fullWidth onClick={payWithEsewa}>
-                        <Image src={config.esewaImageUrl} alt="esewa" fluid rounded />
                       </Button>
                     </ListGroup.Item>
-                  )}
+                  )} */}
 
                   {loadingDeliver && <Loader />}
                   {userInfo && userInfo.role === 'admin' && order.isPaid && !order.isDelivered && (

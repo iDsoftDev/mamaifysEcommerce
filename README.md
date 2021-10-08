@@ -20,7 +20,7 @@
 - Choose quantity (No of items to be order)
 - Checkout process (shipping, payment method, etc)
 - Order summary
-- PayPal / credit card integration
+- PayStack / credit card integration
 - Esewa payment integration (Nepali payment gateway)
 - Database seeder (products, users, reviews, & orders)
 
@@ -50,7 +50,7 @@
 
 ## API :man_technologist:
 
-- [PayPal API](https://developer.paypal.com/)
+- [PayStack API](https://developer.paysatck.com/)
 - [Nodemailer](https://.com/)
 - [Cloudinary API](https://cloudinary.com/)
 
@@ -70,7 +70,7 @@ NODE_ENV=development
 
 MONGO_URI =your mongodb uri
 
-PAYPAL_CLIENT_ID=your paypal client id
+PAYSTACK_CLIENT_ID=your paystack client id
 
 FILE_UPLOAD_PATH=./public/uploads/product
 FILE_UPLOAD_SIZE=1000000

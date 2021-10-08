@@ -44,7 +44,7 @@ const PaymentMethod = ({ history }) => {
                 value={paymentMethod}
                 onChange={(e) => setPaymentMethod(e.target.value)}
               >
-                <FormControlLabel value="PayPal" control={<Radio color="primary" />} label="PayStack or Credit Card" />
+                <FormControlLabel value="PayStack" control={<Radio color="primary" />} label="PayStack or Credit Card" />
               </RadioGroup>
             </Col>
             {/* <Col md="4">

@@ -38,9 +38,9 @@ app.use("/api/v1/order", orderRouter);
 app.use("/api/v1/category", categoryRouter);
 
 
-app.get("/api/config/paypal", (req, res) =>
-  res.send(process.env.PAYPAL_CLIENT_ID)
-);
+app.get("/api/config/paystack", (req, res) =>
+  res.send(process.env.PAYSTACK_CLIENT_ID)
+  );
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
