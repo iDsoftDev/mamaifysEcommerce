@@ -6,6 +6,8 @@ import ErrorMessage from '../components/Message/errorMessage';
 import SuccessMessage from '../components/Message/successMessage';
 import FormContainer from '../components/FormContainer/FormContainer';
 import { TextField, Button, CircularProgress, makeStyles } from '@material-ui/core/';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import * as routes from '../constants/routes';
 import * as userAction from '../actions/userAction';
 import * as userConstants from '../constants/userConstants';
@@ -17,10 +19,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Register = ({ location, history }) => {
+  const eye = <FontAwesomeIcon icon={faEye} />;
   const [name, setName] = useState('');
   const [verificationMessage, setVerificationMessage] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordShown2, setPasswordShown2] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const classes = useStyles();
@@ -43,6 +48,15 @@ const Register = ({ location, history }) => {
       }, 5000);
     }
   }, [success, history, redirect]);
+
+
+    const togglePassword = () => {
+      setPasswordShown(!passwordShown);
+    };
+
+    const togglePassword2 = () => {
+      setPasswordShown2(!passwordShown2);
+    };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -98,7 +112,7 @@ const Register = ({ location, history }) => {
         <TextField
           variant="outlined"
           margin="normal"
-          type="password"
+          type={passwordShown ? "text" : "password"}
           placeholder="***********"
           required
           fullWidth
@@ -109,11 +123,11 @@ const Register = ({ location, history }) => {
           autoComplete="current-password"
           onChange={(e) => setPassword(e.target.value)}
         />
-
+        <i onClick={togglePassword} >{eye}</i>
         <TextField
           variant="outlined"
           margin="normal"
-          type="password"
+          type={passwordShown2 ? "text" : "password"}
           placeholder="***********"
           required
           fullWidth
@@ -124,6 +138,7 @@ const Register = ({ location, history }) => {
           autoComplete="current-password"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
+           <i onClick={togglePassword2} >{eye}</i>
 
         <Button type="submit" variant="contained" color="primary" fullWidth onClick={handleSubmit} disabled={loading}>
           {loading ? <CircularProgress color="inherit" className={classes.progressColor} /> : <>Register</>}

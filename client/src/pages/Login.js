@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import ErrorMessage from '../components/Message/errorMessage';
 import FormContainer from '../components/FormContainer/FormContainer';
 import { TextField, Button, CircularProgress, makeStyles } from '@material-ui/core/';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import * as routes from '../constants/routes';
 import * as userAction from '../actions/userAction';
 import * as userConstants from '../constants/userConstants';
@@ -16,8 +18,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = ({ location, history }) => {
+  const eye = <FontAwesomeIcon icon={faEye} />;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordShown, setPasswordShown] = useState(false);
   const classes = useStyles();
 
   const userAuthData = useSelector((state) => state.userLogin);
@@ -27,6 +31,10 @@ const Login = ({ location, history }) => {
   const redirect = location.search ? location.search.split('=')[1] : routes.HOME;
 
   const dispatch = useDispatch();
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
 
   useEffect(() => {
     if (userInfo) {
@@ -67,7 +75,7 @@ const Login = ({ location, history }) => {
           <TextField
             variant="outlined"
             margin="normal"
-            type="password"
+            type={passwordShown ? "text" : "password"}
             placeholder="***********"
             required
             fullWidth
@@ -78,6 +86,7 @@ const Login = ({ location, history }) => {
             autoComplete="current-password"
             onChange={(e) => setPassword(e.target.value)}
           />
+           <i onClick={togglePassword} >{eye}</i>
 
           <Button type="submit" variant="contained" color="primary" fullWidth disabled={loading}>
             {loading ? <CircularProgress color="inherit" className={classes.prgressColor} /> : <>Sign In</>}
