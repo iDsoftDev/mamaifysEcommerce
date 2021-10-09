@@ -1,5 +1,5 @@
 # Welcome to Mamaify's Shop! ✨
-**Project Link** - *** ... ***
+**Project Link** https://mamaify.herokuapp.com/ *** ... ***
 
 ![screenshot](image/home.PNG)
 
@@ -21,7 +21,6 @@
 - Checkout process (shipping, payment method, etc)
 - Order summary
 - PayStack / credit card integration
-- Esewa payment integration (Nepali payment gateway)
 - Database seeder (products, users, reviews, & orders)
 
 **New features (Added)**
