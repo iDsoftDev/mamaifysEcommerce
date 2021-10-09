@@ -11,7 +11,7 @@ import Loader from '../components/Loader/Loader';
 import { getOrder, payOrder, deliverOrder } from '../actions/orderAction';
 import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../constants/orderConstants';
 import { interpolate } from '../utils/string';
-import config from '../config';
+// import config from '../config';
 import * as routes from '../constants/routes';
 import OrderLoader from '../components/Loader/OrderLoader';
 
@@ -92,41 +92,41 @@ const Order = ({ match }) => {
     dispatch(deliverOrder(order._id));
   };
 
-  const payWith = () => {
-    var resultId = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < 14; i++) {
-      resultId += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
+  // const payWith = () => {
+  //   var resultId = '';
+  //   var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  //   var charactersLength = characters.length;
+  //   for (var i = 0; i < 14; i++) {
+  //     resultId += characters.charAt(Math.floor(Math.random() * charactersLength));
+  //   }
 
-    var path = config.esewaPaymentUrl;
-    var params = {
-      amt: order.itemsPrice,
-      psc: order.shippingPrice,
-      pdc: 0,
-      txAmt: order.taxPrice,
-      tAmt: order.totalPrice,
-      pid: resultId,
-      scd: 'EPAYTEST',
-      su: `http://localhost:3000/order/${orderId}`,
-      fu: `http://localhost:3000/order/${orderId}`,
-    };
-    var form = document.createElement('form');
-    form.setAttribute('method', 'POST');
-    form.setAttribute('action', path);
+  //   var path = config.esewaPaymentUrl;
+  //   var params = {
+  //     amt: order.itemsPrice,
+  //     psc: order.shippingPrice,
+  //     pdc: 0,
+  //     txAmt: order.taxPrice,
+  //     tAmt: order.totalPrice,
+  //     pid: resultId,
+  //     scd: 'EPAYTEST',
+  //     su: `http://localhost:3000/order/${orderId}`,
+  //     fu: `http://localhost:3000/order/${orderId}`,
+  //   };
+  //   var form = document.createElement('form');
+  //   form.setAttribute('method', 'POST');
+  //   form.setAttribute('action', path);
 
-    Object.keys(params).forEach((key) => {
-      var hiddenField = document.createElement('input');
-      hiddenField.setAttribute('type', 'hidden');
-      hiddenField.setAttribute('name', key);
-      hiddenField.setAttribute('value', params[key]);
-      form.appendChild(hiddenField);
-    });
+  //   Object.keys(params).forEach((key) => {
+  //     var hiddenField = document.createElement('input');
+  //     hiddenField.setAttribute('type', 'hidden');
+  //     hiddenField.setAttribute('name', key);
+  //     hiddenField.setAttribute('value', params[key]);
+  //     form.appendChild(hiddenField);
+  //   });
 
-    document.body.appendChild(form);
-    form.submit();
-  };
+  //   document.body.appendChild(form);
+  //   form.submit();
+  // };
 
   return loading ? (
     <OrderLoader />

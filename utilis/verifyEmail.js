@@ -21,10 +21,10 @@ var mailOptions = {
   html:
     "<div style =" +
     "width:100%; height:100%;  " +
-    "><h1 style=" +
-    "font-weight:500>Hey, " +
+    "><h2 style=" +
+    "font-weight:500>Hi, " +
     options.name +
-    "<br>Welcome to MamaIfy's Online Shopping</h1><h1>Thanks for Signing up on our app</h1><h3>Your Code for verification is : " +
+    "<br>Welcome to MamaIfy's Online Shopping</h2><h4>Thanks for Signing up on our app</h4><h3>Your Code for verification is : " +
     options.code +
     " </h3></div><p>If this request is not made by you kindly ignore this mail.</p><p>Regards, <strong>Idam Eni Uzoma(Owner)</strong></p>",
  };
