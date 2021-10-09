@@ -97,7 +97,7 @@ const Register = ({ location, history }) => {
           variant="outlined"
           type="email"
           margin="normal"
-          placeholder="idameni89@gmail.com"
+          placeholder="example234@gmail.com"
           required
           fullWidth
           id="email"
