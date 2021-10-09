@@ -13,7 +13,7 @@ const Shipping = ({ history }) => {
 
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+  const [phoneNumber, setPhoneNumber] = useState(shippingAddress.phoneNumber);
   const [country, setCountry] = useState(shippingAddress.country);
 
   if (!cartItems.length) {
@@ -26,7 +26,7 @@ const Shipping = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    dispatch(saveShippingAddress({ address, city, phoneNumber, country }));
     history.push({
       pathname: routes.PAYMENT,
     });
@@ -72,13 +72,13 @@ const Shipping = ({ history }) => {
           margin="normal"
           required
           fullWidth
-          id="postal code"
-          label="Enter postal code"
-          name="postal code"
-          autoComplete="postal code"
+          id="phone number"
+          label="Enter phone number"
+          name="phone number"
+          autoComplete="phone number"
           autoFocus
-          value={postalCode}
-          onChange={(e) => setPostalCode(e.target.value)}
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
         />
 
         <TextField

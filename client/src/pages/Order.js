@@ -149,7 +149,7 @@ const Order = ({ match }) => {
                     <strong>Email: </strong> <a href={`mailto:${order.userId.email}`}>{order.userId.email}</a>
                   </p>
                   <p>
-                    <strong>Address:</strong> {order.shipping.address},{order.shipping.city} {order.shipping.postalCode}
+                    <strong>Address:</strong> {order.shipping.address},{order.shipping.city} {order.shipping.phoneNumber}
                     , {order.shipping.country}
                   </p>
                   {order.isDelivered ? (

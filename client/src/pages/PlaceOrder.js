@@ -82,7 +82,7 @@ const PlaceOrder = ({ history }) => {
               <h2>Shipping</h2>
               <p>
                 <strong>Address:</strong>
-                {cart.shippingAddress.address}, {cart.shippingAddress.city} {cart.shippingAddress.postalCode},{' '}
+                {cart.shippingAddress.address}, {cart.shippingAddress.city} {cart.shippingAddress.phoneNumber},{' '}
                 {cart.shippingAddress.country}
               </p>
             </ListGroup.Item>

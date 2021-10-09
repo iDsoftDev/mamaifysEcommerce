@@ -9,9 +9,9 @@ const ShippingSchema = {
     type: String,
     required: [true, "Please add a city name"],
   },
-  postalCode: {
+  phoneNumber: {
     type: Number,
-    required: [true, "Please add a postal code"],
+    required: [true, "Please add a phone number"],
   },
   country: {
     type: String,
