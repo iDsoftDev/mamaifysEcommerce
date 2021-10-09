@@ -93,39 +93,7 @@ const Order = ({ match }) => {
   };
 
   // const payWith = () => {
-  //   var resultId = '';
-  //   var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  //   var charactersLength = characters.length;
-  //   for (var i = 0; i < 14; i++) {
-  //     resultId += characters.charAt(Math.floor(Math.random() * charactersLength));
-  //   }
 
-  //   var path = config.esewaPaymentUrl;
-  //   var params = {
-  //     amt: order.itemsPrice,
-  //     psc: order.shippingPrice,
-  //     pdc: 0,
-  //     txAmt: order.taxPrice,
-  //     tAmt: order.totalPrice,
-  //     pid: resultId,
-  //     scd: 'EPAYTEST',
-  //     su: `http://localhost:3000/order/${orderId}`,
-  //     fu: `http://localhost:3000/order/${orderId}`,
-  //   };
-  //   var form = document.createElement('form');
-  //   form.setAttribute('method', 'POST');
-  //   form.setAttribute('action', path);
-
-  //   Object.keys(params).forEach((key) => {
-  //     var hiddenField = document.createElement('input');
-  //     hiddenField.setAttribute('type', 'hidden');
-  //     hiddenField.setAttribute('name', key);
-  //     hiddenField.setAttribute('value', params[key]);
-  //     form.appendChild(hiddenField);
-  //   });
-
-  //   document.body.appendChild(form);
-  //   form.submit();
   // };
 
   return loading ? (
