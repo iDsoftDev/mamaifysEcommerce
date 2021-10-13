@@ -216,7 +216,7 @@ const Order = ({ match }) => {
 
                         
                         <PaystackButton text={'Click to make payment'} reference ={(new Date()).getTime().toString()} email={order.userId.email}
-                                         publicKey = {"pk_live_76ea25e351b689e556b34a568b0505d21dda6d9b"} 
+                                         publicKey = {process.env.REACT_APP_API_PAYSTACK} 
                                          amount={order.totalPrice * 100} 
                                          onSuccess={successPaymentHandler} />
                                          </Button>
