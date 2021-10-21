@@ -153,6 +153,7 @@ const EditProduct = ({ match }) => {
                 onChange={(e) => setName(e.target.value)}
               />
 
+
               <TextField
                 variant="outlined"
                 type="text"
